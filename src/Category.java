@@ -16,34 +16,21 @@ public class Category {
     }
 
     // 기능
+
+    // 카테고리 이름 반환
     public String getCategory() {
         return category;
     }
 
-    public void choiceCategory() {
-        System.out.println("\n[ " + category + " 카테고리 ]");
-        for (int i = 0; i < product.size(); i++) {
-            System.out.printf("%d. %-14s | %,10d원 | %s %n",
-                    i + 1,
-                    product.get(i).getProductName(),
-                    product.get(i).getPrice(),
-                    product.get(i).getDescription());
-        }
-        System.out.println("0. 뒤로가기");
-
-        int choiceProduct = scanner.nextInt();
-        if (choiceProduct == 0) {
-
-        } else {
-            System.out.printf("선택한 상품: %s | %,d원 | %s | 재고: %s %n \n",
-                    product.get(choiceProduct).getProductName(),
-                    product.get(choiceProduct).getPrice(),
-                    product.get(choiceProduct).getDescription(),
-                    product.get(choiceProduct).getQuantity());
-        }
-
+    // 카테고리 사이즈 반환
+    public int getListSize() {
+        return product.size();
     }
 
+    // 카테고리 프로덕트 반환
+    public Product getProduct(int i) {
+        return product.get(i);
+    }
 
 
 }
