@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        List<Product> basketList = new ArrayList<>();
 
         List<Product> electProducts = new ArrayList<>();
         electProducts.add(new Product("Galaxy S25", 1200000, "최신 안드로이드 스마트폰", 25));
@@ -34,7 +35,7 @@ public class Main {
         categoryList.add(foodCategory);
 
 
-        CommerceSystem commerceSystem = new CommerceSystem(scanner, categoryList);
+        CommerceSystem commerceSystem = new CommerceSystem(scanner, categoryList, basketList);
         commerceSystem.start();
 
 
