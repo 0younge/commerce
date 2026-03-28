@@ -22,15 +22,25 @@ public class Category {
         return category;
     }
 
-    // 카테고리 사이즈 반환
-    public int getListSize() {
-        return product.size();
+    // 카테고리별 프로덕트 스크린
+    public void productListScreen() {
+        System.out.println("\n[ " + category + " 카테고리 ]");
+        for (int i = 0; i < product.size(); i++) {
+            System.out.print(i + 1 + ". ");
+            product.get(i).getProductList();
+        }
+        System.out.println("0. 뒤로가기");
     }
 
-    // 카테고리 프로덕트 반환
-    public Product getProduct(int i) {
-        return product.get(i);
+    // 선택한 프로덕트 장바구니 추가여부 스크린
+    public void selectProductScreen(int i) {
+        product.get(i).getProduct();
+        product.get(i).selectedProductInfo();
+        System.out.println("위 상품을 장바구니에 추가하시겠습니까?");
+        System.out.println("1. 확인       2. 취소");
     }
+
+
 
 
 }

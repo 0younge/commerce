@@ -40,47 +40,19 @@ public class CommerceSystem {
             if (categoryNum == 0) {
                 break;
             } else {
-                int categoryIndex = categoryNum - 1;
-                System.out.println("\n[ " + categoryList.get(categoryIndex).getCategory() + " 카테고리 ]");
-                for (int i = 0; i < categoryList.get(categoryIndex).getListSize(); i++) {
-                    System.out.printf("%d. %-14s | %,10d원 | %s | 재고: %s %n",
-                            i + 1,
-                            categoryList.get(categoryIndex).getProduct(i).getProductName(),
-                            categoryList.get(categoryIndex).getProduct(i).getPrice(),
-                            categoryList.get(categoryIndex).getProduct(i).getDescription(),
-                            categoryList.get(categoryIndex).getProduct(i).getQuantity());
-                    categoryList.get(1).
-                }
-                System.out.println("0. 뒤로가기");
-
-                // Product 선택
-                int productIndex = scanner.nextInt();
-                if (productIndex == 0) {
-
-                } else {
-                    productIndex -= 1;
-                    System.out.printf("선택한 상품: %s | %,d원 | %s | 재고: %s %n \n",
-                            categoryList.get(categoryIndex).getProduct(productIndex).getProductName(),
-                            categoryList.get(categoryIndex).getProduct(productIndex).getPrice(),
-                            categoryList.get(categoryIndex).getProduct(productIndex).getDescription(),
-                            categoryList.get(categoryIndex).getProduct(productIndex).getQuantity());
-
-                    System.out.printf("\"%s | %,d원 | %s\"\n",
-                            categoryList.get(categoryIndex).getProduct(productIndex).getProductName(),
-                            categoryList.get(categoryIndex).getProduct(productIndex).getPrice(),
-                            categoryList.get(categoryIndex).getProduct(productIndex).getDescription());
-                    System.out.println("위 상품을 장바구니에 추가하시겠습니까?");
-                    System.out.println("1. 확인       2. 취소");
-                    int putBasket = scanner.nextInt();
-
-                    if (putBasket == 1) {
-                        System.out.println("\n" + categoryList.get(categoryIndex).getProduct(productIndex).getProductName() + "가 장바구니에 추가되었습니다\n");
-                        basketList.add(categoryList.get(categoryIndex).getProduct(productIndex));
-                    }
-
-                }
-
+                categoryList.get(categoryNum - 1).productListScreen();
             }
+
+            // 프로덕트 선택
+            int productIndex = scanner.nextInt();
+            if (productIndex == 0) {
+
+            } else {
+                categoryList.get(categoryNum - 1).selectProductScreen(productIndex - 1);
+            }
+
+            int addBasketWhether = scanner.nextInt();
+
 
         }
 

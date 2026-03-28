@@ -30,4 +30,27 @@ public class Product {
     public int getQuantity() {
         return quantity;
     }
+    public void getProductList() {
+        System.out.printf("%-14s | %,10d원 | %s | 재고: %s %n",
+                productName,
+                price,
+                description,
+                quantity);
+    }
+
+    public void getProduct() {
+        System.out.printf("선택한 상품: %s | %,d원 | %s | 재고: %s %n \n",
+                productName,
+                price,
+                description,
+                quantity);
+    }
+
+    public void selectedProductInfo() {
+        System.out.printf("\"%s | %,d원 | %s\"\n",
+                productName,
+                price,
+                description);
+    }
+
 }
