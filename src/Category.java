@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -5,14 +6,14 @@ public class Category {
 
     // 속성
     private String category;
-    private List<Product> product;
-    private Scanner scanner;
+    private List<Product> productList;
+    private Basket basketList;
 
     // 생성자
-    public Category(String category, List<Product> product, Scanner scanner) {
+    public Category(String category, List<Product> productList, Basket basketList) {
         this.category = category;
-        this.product = product;
-        this.scanner = scanner;
+        this.productList = productList;
+        this.basketList = basketList;
     }
 
     // 기능
@@ -25,19 +26,24 @@ public class Category {
     // 카테고리별 프로덕트 스크린
     public void productListScreen() {
         System.out.println("\n[ " + category + " 카테고리 ]");
-        for (int i = 0; i < product.size(); i++) {
+        for (int i = 0; i < productList.size(); i++) {
             System.out.print(i + 1 + ". ");
-            product.get(i).getProductList();
+            productList.get(i).getProduct();
         }
         System.out.println("0. 뒤로가기");
     }
 
     // 선택한 프로덕트 장바구니 추가여부 스크린
     public void selectProductScreen(int i) {
-        product.get(i).getProduct();
-        product.get(i).selectedProductInfo();
+        productList.get(i).selectedProductInfo();
         System.out.println("위 상품을 장바구니에 추가하시겠습니까?");
         System.out.println("1. 확인       2. 취소");
+    }
+
+    // 선택한 프로덕트 장바구니 추가
+    public void addBasket(int i) {
+        basketList.addBasketList(productList.get(i));
+        productList.get(i).addBasketProductInfo();
     }
 
 

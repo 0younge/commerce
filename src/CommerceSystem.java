@@ -6,10 +6,10 @@ public class CommerceSystem {
     // 속성
     private Scanner scanner;
     private List<Category> categoryList;
-    private List<Product> basketList;
+    private Basket basketList;
 
     // 생성자
-    public CommerceSystem(Scanner scanner, List<Category> categoryList, List<Product> basketList) {
+    public CommerceSystem(Scanner scanner, List<Category> categoryList, Basket basketList) {
         this.scanner = scanner;
         this.categoryList = categoryList;
         this.basketList = basketList;
@@ -28,7 +28,7 @@ public class CommerceSystem {
             System.out.println("0. 종료      | 프로그램 종료");
 
             // 주문 관리
-            if (!basketList.isEmpty()) {
+            if (!basketList.basketListIsEmpty()) {
                 System.out.println("\n[ 주문 관리 ]");
                 System.out.println("4. 장바구니 확인    | 장바구니를 확인 후 주문합니다.");
                 System.out.println("5. 주문 취소       | 진행중인 주문을 취소합니다.");
@@ -36,7 +36,6 @@ public class CommerceSystem {
 
             // 카테고리 선택
             int categoryNum = scanner.nextInt();
-
             if (categoryNum == 0) {
                 break;
             } else {
@@ -49,13 +48,17 @@ public class CommerceSystem {
 
             } else {
                 categoryList.get(categoryNum - 1).selectProductScreen(productIndex - 1);
-            }
 
-            int addBasketWhether = scanner.nextInt();
+                // 장바구니 추가 여부 선택
+                int selectAddBasket = scanner.nextInt();
+                if (selectAddBasket == 1) {
+                    categoryList.get(categoryNum - 1).addBasket(productIndex - 1);
+                    System.out.println("아래 메뉴를 선택하세요.");
+                }
+            }
 
 
         }
-
 
     }
 

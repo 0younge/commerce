@@ -1,14 +1,12 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Basket {
 
     // 속성
-    private List<Product> basketList;
+    private List<Product> basketList = new ArrayList<>();
 
     // 생성자
-    public void Basket(List<Product> basketList) {
-        this.basketList = basketList;
-    }
 
     // 기능
 
@@ -18,7 +16,7 @@ public class Basket {
     }
 
     public boolean basketListIsEmpty() {
-        return basketList == null;
+        return basketList.isEmpty();
     }
 
 }
