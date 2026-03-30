@@ -12,13 +12,18 @@ public class Basket {
 
     // basketList 추가
     public void addBasketList(Product product) {
-        for (int i = 0; i < basketList.size(); i++) {
-            if (basketList.get(i).getProduct().equals(product)) {
-                basketList.get(i).plusBasketQuantity();
-                return;
+        if (product.getQuantity() > 1) {
+            for (int i = 0; i < basketList.size(); i++) {
+                if (basketList.get(i).getProduct().equals(product)) {
+                    basketList.get(i).plusBasketQuantity();
+                    return;
+                }
             }
+            basketList.add(new BasketProduct(product));
+            product.addBasketProductInfo();
+        } else {
+            System.out.println("선택한 재품의 재고가 부족합니다.");
         }
-        basketList.add(new BasketProduct(product));
     }
 
     // basketList 항목 존재 여부 반환

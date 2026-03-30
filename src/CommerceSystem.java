@@ -42,8 +42,8 @@ public class CommerceSystem {
                 System.out.println("아래와 같이 주문 하시겠습니까?\n");
                 basketList.basketListScreen();
                 System.out.println("1. 주문 확정      2. 메인으로 돌아가기");
-                int orderWhether = scanner.nextInt();
-                if (orderWhether == 1) {
+                int shouldOrder = scanner.nextInt();
+                if (shouldOrder == 1) {
                     basketList.orderFinish();
                     continue;
                 } else {

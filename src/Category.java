@@ -40,7 +40,6 @@ public class Category {
 
     // 선택한 프로덕트 장바구니 추가
     public Product getProductforBasket(int i) {
-        productList.get(i).addBasketProductInfo();
         return productList.get(i);
     }
 
