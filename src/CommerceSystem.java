@@ -46,6 +46,10 @@ public class CommerceSystem {
             int productIndex = scanner.nextInt();
             if (productIndex == 0) {
 
+            } else if (productIndex == 4) {
+
+            } else if (productIndex == 5) {
+                basketList.clearBasketList();
             } else {
                 categoryList.get(categoryNum - 1).selectProductScreen(productIndex - 1);
 

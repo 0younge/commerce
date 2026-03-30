@@ -15,8 +15,16 @@ public class Basket {
         basketList.add(product);
     }
 
+    // basketList 항목 존재 여부 반환
     public boolean basketListIsEmpty() {
         return basketList.isEmpty();
     }
+
+    // basketList 초기화
+    public void clearBasketList() {
+        basketList.clear();
+    }
+
+    // basketList product 반환
 
 }

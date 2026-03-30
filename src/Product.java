@@ -5,15 +5,13 @@ public class Product {
     private int price;
     private String description;
     private int quantity;
-    private int basketQuantity;
 
     // 생성자
-    public Product(String productName, int price, String description, int quantity, int basketQuantity) {
+    public Product(String productName, int price, String description, int quantity) {
         this.productName = productName;
         this.price = price;
         this.description = description;
         this.quantity = quantity;
-        this.basketQuantity = basketQuantity;
     }
 
     // 기능
