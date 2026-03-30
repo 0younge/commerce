@@ -7,13 +7,11 @@ public class Category {
     // 속성
     private String category;
     private List<Product> productList;
-    private Basket basketList;
 
     // 생성자
-    public Category(String category, List<Product> productList, Basket basketList) {
+    public Category(String category, List<Product> productList) {
         this.category = category;
         this.productList = productList;
-        this.basketList = basketList;
     }
 
     // 기능
@@ -41,9 +39,9 @@ public class Category {
     }
 
     // 선택한 프로덕트 장바구니 추가
-    public void addBasket(int i) {
-        basketList.addBasketList(productList.get(i));
+    public Product getProductforBasket(int i) {
         productList.get(i).addBasketProductInfo();
+        return productList.get(i);
     }
 
 

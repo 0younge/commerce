@@ -38,6 +38,20 @@ public class CommerceSystem {
             int categoryNum = scanner.nextInt();
             if (categoryNum == 0) {
                 break;
+            } else if (categoryNum == 4) {
+                System.out.println("아래와 같이 주문 하시겠습니까?\n");
+                basketList.basketListScreen();
+                System.out.println("1. 주문 확정      2. 메인으로 돌아가기");
+                int orderWhether = scanner.nextInt();
+                if (orderWhether == 1) {
+                    basketList.orderFinish();
+                    continue;
+                } else {
+                    continue;
+                }
+            } else if (categoryNum == 5) {
+                basketList.clearBasketList();
+                continue;
             } else {
                 categoryList.get(categoryNum - 1).productListScreen();
             }
@@ -46,17 +60,13 @@ public class CommerceSystem {
             int productIndex = scanner.nextInt();
             if (productIndex == 0) {
 
-            } else if (productIndex == 4) {
-
-            } else if (productIndex == 5) {
-                basketList.clearBasketList();
             } else {
                 categoryList.get(categoryNum - 1).selectProductScreen(productIndex - 1);
 
                 // 장바구니 추가 여부 선택
                 int selectAddBasket = scanner.nextInt();
                 if (selectAddBasket == 1) {
-                    categoryList.get(categoryNum - 1).addBasket(productIndex - 1);
+                    basketList.addBasketList(categoryList.get(categoryNum - 1).getProductforBasket(productIndex - 1));
                     System.out.println("아래 메뉴를 선택하세요.");
                 }
             }
