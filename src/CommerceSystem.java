@@ -7,6 +7,7 @@ public class CommerceSystem {
     private Scanner scanner;
     private List<Category> categoryList;
     private Basket basketList;
+    private AdminSystem adminSystem = new AdminSystem(scanner, categoryList, basketList);
 
     // 생성자
     public CommerceSystem(Scanner scanner, List<Category> categoryList, Basket basketList) {
@@ -26,6 +27,7 @@ public class CommerceSystem {
                 System.out.println(i + 1 +". " + categoryList.get(i).getCategory());
             }
             System.out.println("0. 종료      | 프로그램 종료");
+            System.out.println("6. 관리자 모드");
 
             // 주문 관리
             if (!basketList.basketListIsEmpty()) {
@@ -52,6 +54,15 @@ public class CommerceSystem {
             } else if (categoryNum == 5) {
                 basketList.clearBasketList();
                 continue;
+            } else if (categoryNum == 6) {
+                System.out.println("관리자 비밀번호를 입력해주세요");
+                for (int i = 0; i < 4; i++) {
+                    String inputPassword = scanner.nextLine();
+                    if (inputPassword.equals("admin123")) {
+                        adminSystem.start();
+                        break;
+                    }
+                } continue;
             } else {
                 categoryList.get(categoryNum - 1).productListScreen();
             }
