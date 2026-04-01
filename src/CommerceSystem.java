@@ -7,13 +7,14 @@ public class CommerceSystem {
     private Scanner scanner;
     private List<Category> categoryList;
     private Basket basketList;
-    private AdminSystem adminSystem = new AdminSystem(scanner, categoryList, basketList);
+    private AdminSystem adminSystem;
 
     // 생성자
-    public CommerceSystem(Scanner scanner, List<Category> categoryList, Basket basketList) {
+    public CommerceSystem(Scanner scanner, List<Category> categoryList, Basket basketList, AdminSystem adminSystem) {
         this.scanner = scanner;
         this.categoryList = categoryList;
         this.basketList = basketList;
+        this.adminSystem = adminSystem;
     }
 
     // 기능

@@ -43,7 +43,10 @@ public class Category {
         return productList.get(i);
     }
 
-
+    // 상품 추가
+    public void addProduct(Product product) {
+        productList.add(product);
+    }
 
 
 }

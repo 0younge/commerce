@@ -34,8 +34,10 @@ public class Main {
         categoryList.add(clothCategory);
         categoryList.add(foodCategory);
 
+        AdminSystem adminSystem = new AdminSystem(scanner, categoryList, basketList);
 
-        CommerceSystem commerceSystem = new CommerceSystem(scanner, categoryList, basketList);
+
+        CommerceSystem commerceSystem = new CommerceSystem(scanner, categoryList, basketList, adminSystem);
         commerceSystem.start();
 
 
